@@ -1,17 +1,5 @@
 ################### EC2 variables ###################
 
-variable "ami" {
-  type = string
-}
-
-variable "checo-ami" {
-  type = string
-}
-
-variable "instance_type" {
-  type = string
-}
-
 variable "key_name" {
   type = string
 }
@@ -33,8 +21,6 @@ variable "configuration" {
   default = [{}]
 }
 
-
-#variable "private_key_path" {}
 
 ################### Route 53 variables ###################
 
@@ -109,5 +95,25 @@ variable "origin-id" {
 }
 
 variable "acm-certificate-arn" {
+  type = string
+}
+
+
+
+################### RDS Variables ###################
+
+variable "engine" {
+    type = string
+}
+
+variable "engine-version" {
+  type = string
+}
+
+variable "db-instance-class" {
+  type = string
+}
+
+variable "db-password" {
   type = string
 }

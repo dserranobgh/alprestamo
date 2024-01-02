@@ -1,16 +1,12 @@
 module "ec2_alb" {
   source = "./modules/ec2-alb"
   security_groups = module.vpc.security_groups
-  ami = var.ami
-  checo-ami = var.checo-ami
   priv-main-subnet-cidr = var.priv-main-subnet-cidr
   priv-alt-subnet-cidr = var.priv-alt-subnet-cidr
   pub-main-subnet-cidr = var.pub-main-subnet-cidr
   pub-alt-subnet-cidr = var.pub-alt-subnet-cidr
   codigo-pais = var.codigo-pais
   key_name = var.key_name
-  #private_key_path = var.private_key_path
-  instance_type = var.instance_type
   environment = var.environment
   vpc_security_group_ids = module.vpc.security_groups
   certificate_arn = var.certificate_arn
@@ -79,4 +75,18 @@ module "cdn" {
   domain-name-perf = module.s3.domain-name-perf
   acm-certificate-arn = var.acm-certificate-arn
   domain_name = var.domain_name
+}
+
+module "rds" {
+  source = "./modules/rds"
+  dev-priv-alt-subnet-id = module.vpc.dev-priv-alt-subnet-id
+  dev-priv-main-subnet-id = module.vpc.dev-priv-main-subnet-id
+  environment = var.environment
+  codigo-pais = var.codigo-pais
+  record_name = var.record_name
+  vpc_id = var.vpc_id
+  engine-version = var.engine-version
+  engine = var.engine
+  db-password = var.db-password
+  db-instance-class = var.db-instance-class
 }
