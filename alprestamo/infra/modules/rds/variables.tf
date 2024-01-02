@@ -6,10 +6,6 @@ variable "dev-priv-alt-subnet-id" {
     type = string
 }
 
-variable "vpc_id" {
-    type = string
-}
-
 variable "record_name" {
   type = string
 }

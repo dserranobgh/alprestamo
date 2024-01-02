@@ -3,7 +3,6 @@
 resource "aws_db_subnet_group" "subnet-group" {
     name = "db-${var.record_name}-${var.codigo-pais}-${var.environment}"
     subnet_ids = [var.dev-priv-main-subnet-id, var.dev-priv-alt-subnet-id]
-    vpc_id = var.vpc_id
 
     tags = {
       Name = "db-${var.record_name}-${var.codigo-pais}-${var.environment}"

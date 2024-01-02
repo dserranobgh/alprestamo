@@ -84,7 +84,6 @@ module "rds" {
   environment = var.environment
   codigo-pais = var.codigo-pais
   record_name = var.record_name
-  vpc_id = var.vpc_id
   engine-version = var.engine-version
   engine = var.engine
   db-password = var.db-password
